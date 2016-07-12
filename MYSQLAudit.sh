@@ -1,7 +1,6 @@
 #!/bin/bash
 #SecureLayer7 MYSQL Audit Script
 #Developed and Modified By Sandeep Kamble for the official purpose only
-# Email : Sandeep@securelayer7.net
 #This configuration review script is deveoped according specific needs.
 #Last Update Data : 7 July, 2016
 # Use following command to run this scipt 
@@ -25,6 +24,7 @@ echo "CREATING DIRECTORIES : RESULTS"
 mkdir -p results
 
 ### General Inforamtion for MYSQL Audit 
+echo "SecureLayer7 MYSQL Audit Started";
 
 echo "Time and Date" >> results/System_info.txt
 echo 'select NOW()'| mysql -u$username -p$password >> results/System_info.txt
@@ -169,3 +169,5 @@ echo " " >> results/MYSQLAudit.txt
 echo "Auditing Guidance for section 7.2" >> results/MYSQLAudit.txt
 echo "show variables like 'have_openssl'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "##################END AUDIT##############" >> results/MYSQLAudit.txt
+echo "##################END MYSQL AUDIT##############";
+echo "ZIP the result folder and email to consultant";
