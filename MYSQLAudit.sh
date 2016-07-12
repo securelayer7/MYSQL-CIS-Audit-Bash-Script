@@ -164,10 +164,6 @@ echo "Auditing Guidance for section 7.2" >> results/MYSQLAudit.txt
 echo "show variables like 'have_openssl'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "show variables like 'ssl_key'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "show variables like 'ssl_ca'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
-echo "################################" >> results/MYSQLAudit.txt
-echo " " >> results/MYSQLAudit.txt
-echo "Auditing Guidance for section 7.2" >> results/MYSQLAudit.txt
-echo "show variables like 'have_openssl'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "##################END AUDIT##############" >> results/MYSQLAudit.txt
 echo "##################END MYSQL AUDIT##############";
 echo "ZIP the result folder and email to consultant";
