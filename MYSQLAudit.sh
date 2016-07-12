@@ -1,6 +1,7 @@
 #!/bin/bash
 #SecureLayer7 MYSQL Audit Script
 #Developed and Modified By Sandeep Kamble for the official purpose only
+# Email : Sandeep@securelayer7.net
 #This configuration review script is deveoped according specific needs.
 #Last Update Data : 7 July, 2016
 # Use following command to run this scipt 
