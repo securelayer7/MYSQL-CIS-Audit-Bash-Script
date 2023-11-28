@@ -21,7 +21,7 @@ $passwordText = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([Syste
 
 # CREATING DIRECTORIES: RESULTS
 Write-Host "CREATING DIRECTORIES : RESULTS"
-New-Item -ItemType Directory -Path "results" -Force | Out-Null
+New-Item -ItemType Directory -Path "results_$dbname" -Force | Out-Null
 
 # General Information for MYSQL Audit
 Write-Host "SecureLayer7 MYSQL Audit Started"
