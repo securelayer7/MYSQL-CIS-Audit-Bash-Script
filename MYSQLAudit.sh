@@ -45,6 +45,9 @@ echo "DATABASES" >> results/Databases.txt
 echo 'show databases'| mysql -u$username -p$password >> results/Databases.txt 
 echo 'show databases'| mysql -u$username -p$password |grep -v Database>> results/mysql_databases
 
+echo "TLS VERSION" >> results/Databases.txt
+echo 'select @@tls_version'| mysql -u$username -p$password >> results/Databases.txt 
+
 echo "ALL TABLES FROM ALL DATABASES" >> results/Tables_from_databases.txt
 echo 'select table_schema, table_name from information_schema.tables'| mysql -u$username -p$password >> results/Tables_from_databases.txt
 echo 'select table_schema, table_name from information_schema.tables'| mysql -u$username -p$password >> results/mysql_tables
@@ -57,10 +60,16 @@ echo "SELECT table_schema, table_name FROM information_schema.tables WHERE table
 echo "Starting of MYSQL Audit" > results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
 echo " " >> results/MYSQLAudit.txt
-echo "Auditing Guidance for section 1.6" >> results/MYSQLAudit.txt
-echo "show variables like 'datadir'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo "Auditing Guidance for section 3.1" >> results/MYSQLAudit.txt
+echo "show variables where variable_name = 'datadir'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo " " >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
+
+echo "Auditing Guidance for section 3.2" >> results/MYSQLAudit.txt
+echo "show variables like 'log_bin_basename'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo " " >> results/MYSQLAudit.txt
+echo "################################" >> results/MYSQLAudit.txt
+
 echo "Auditing Guidance for section 2.2" >> results/MYSQLAudit.txt
 echo "show variables like 'basedir'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
@@ -68,17 +77,39 @@ echo " " >> results/MYSQLAudit.txt
 echo "Logging" >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
 echo " " >> results/MYSQLAudit.txt
-echo "Auditing Guidance for section 3.1" >> results/MYSQLAudit.txt
+echo "Auditing Guidance for section 3.3" >> results/MYSQLAudit.txt
 echo "show variables like 'log_error'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
 echo " " >> results/MYSQLAudit.txt
-echo "Auditing Guidance for section 3.3 & 3.4 " >> results/MYSQLAudit.txt
+echo "Auditing Guidance for section 3.3" >> results/MYSQLAudit.txt
 echo "show variables like 'log_bin'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
 echo " " >> results/MYSQLAudit.txt
-echo "show variables like 'log_bin'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo "Auditing Guidance for section 3.4 " >> results/MYSQLAudit.txt
+echo "show variables like 'slow_query_log'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
 echo " " >> results/MYSQLAudit.txt
+
+echo "Auditing Guidance for section 3.5 " >> results/MYSQLAudit.txt
+echo "show variables like 'relay_log_basename'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo "################################" >> results/MYSQLAudit.txt
+echo " " >> results/MYSQLAudit.txt
+
+echo "Auditing Guidance for section 4.9 " >> results/MYSQLAudit.txt
+echo "SHOW VARIABLES LIKE 'sql_mode'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo "################################" >> results/MYSQLAudit.txt
+echo " " >> results/MYSQLAudit.txt
+
+echo "Auditing Guidance for section 7.5 " >> results/MYSQLAudit.txt
+echo "SHOW VARIABLES LIKE 'default_password_lifetime'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo "################################" >> results/MYSQLAudit.txt
+echo " " >> results/MYSQLAudit.txt
+
+echo "Auditing Guidance for section 7.6 " >> results/MYSQLAudit.txt
+echo "SHOW VARIABLES LIKE 'validate_password%'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
+echo "################################" >> results/MYSQLAudit.txt
+echo " " >> results/MYSQLAudit.txt
+
 echo "Auditing Guidance for section 4.5" >> results/MYSQLAudit.txt
 echo "select user from mysql.user where user = 'root'" | mysql -u$username -p$password >> results/MYSQLAudit.txt
 echo "################################" >> results/MYSQLAudit.txt
